@@ -48,8 +48,9 @@ header img{
 
 .search-input-container{	
 	position: relative;	
+	margin-left: auto;
+	margin-right: auto;
 	width: 80%;
-	left: 10%;
 	height: 80px;
 	top: 40%;	
 	color: #fff;

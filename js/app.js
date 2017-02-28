@@ -27,7 +27,7 @@ Search.prototype.moveToPrevious = function(){
 */
 
 function updateParameters(){	
-
+	term = {};
 	var dish = $('.dish-name').val();
 	term.q = dish;
 
@@ -40,14 +40,14 @@ function updateParameters(){
 
 	var diet = $('.diet-requirements').val();
 	if(diet){
-		term.diet = diet;
+		term.dietLabels = diet;
 	}
 
 
 
 	var health = $('.health-requirements').val();
 	if(health){
-		term.healthlabel = health;
+		term.healthLabels = health;
 	}	
 	sendRequest();
 	
@@ -67,10 +67,12 @@ function sendRequest(){
 
  	$.ajax({
     	url: 'https://api.edamam.com/search',
-    	data: parameters,
-    	dataType: 'jsonp',
+    	data: request,
+    	dataType: 'JSONP',
     	jsonpCallback: 'callBack'    	
     })
+
+    
 }
 
 
@@ -80,7 +82,7 @@ function callBack(data){
 		$('.no-results').hide();
 		recipes = data.hits;				
 		state.currentSearch = new Search(term, recipes, recipes[0].recipe.image);	
-		renderResults(state);			
+		renderResults(state);					
 	} else {
 		$('.no-results').show();		
 	}
@@ -95,6 +97,7 @@ function loadNutrition(state){
 
 // Show View by Class Name
 function renderView(view){
+	
 	$('.view.' + view).show();
 }
 
@@ -118,7 +121,13 @@ function renderClearResults(){
 }
 
 function renderShowItemInfo(index){	
-	
+
+	// size and position item result overlay backdrop
+	var height = $(document).height();
+	$('.item-background-overlay').css('height', height);
+	$('.item-background-overlay').show();
+
+
 	var dish = state.currentSearch.recipes[index].recipe;
 	$('.item-info').empty();
 	$('.item-result').show();
@@ -180,7 +189,6 @@ function renderShowItemInfo(index){
 	$('.item-image').attr('src', dish.image);
 
 	$('.link').attr('href', dish.url);
-
 }
 
 
@@ -190,7 +198,7 @@ function renderShowItemInfo(index){
 
 /*		Event Listeners		*/
 $(function(){	
-
+	// Submit User's Search
 	$('.search-form').submit(function(e){
 		e.preventDefault();
 		updateParameters();
@@ -198,16 +206,29 @@ $(function(){
 		$('.dish-name').val('');
 	})
 
+	// Render Result for Individual Dish
 	$('.results-wrapper').on('click', 'article', function(e){
 		var elem = $(e.target).closest('article');
-		var elemIndex = elem.attr('id').slice(5);		
+		var elemPos = elem.position();
+		$('.dish-snapshot').css('margin-top', elemPos.top);
+		console.log(elemPos.top)
+		var elemIndex = elem.attr('id').slice(5);	
 		renderShowItemInfo(elemIndex);		
+
+
+		setTimeout(function(){
+			$(window).scrollTop(elemPos.top + 100);
+		}, 50); 
+		
+
+		
 	})
 
 
 	//close individual item result window
 	$('.close-results').click(function(){		
 		$('.item-result').hide();
+		$('.item-background-overlay').hide();
 	})
 
 })

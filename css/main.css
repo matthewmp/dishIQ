@@ -27,7 +27,7 @@ div[class*= "dish-search"] {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: red;
+	
 	
 }
 
@@ -69,8 +69,10 @@ select{
 
 .item-result{	
 	display: none;
-	position: absolute;
-	width: 100%;	
+	position: relative;
+	width: 70%;	
+	margin-left: auto;
+	margin-right: auto;
 	background-color: #ff8000;
 	opacity: 0.95;
 	color: #fff;
@@ -82,7 +84,12 @@ select{
 	vertical-align: top;
 	margin-left: auto;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: auto;	
+}
+
+li{
+	list-style-position: inside;
+	padding: 10px;
 }
 
 .item-result img{
@@ -170,3 +177,13 @@ img{
 	font-family: arial, serif;
 }
 
+
+.item-background-overlay{
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(70, 38, 1, 0.9);
+}

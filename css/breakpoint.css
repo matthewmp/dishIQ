@@ -1,0 +1,84 @@
+@media only screen and (max-width : 1130px) {
+
+	.search-form{
+		background-position: 0px, 0px;		
+	}
+
+	.search-input-container{
+		width: 60%;
+		
+	}
+
+	.search-input-container input, select{
+		margin-bottom: 10px;
+	}
+
+}
+
+
+
+@media only screen and (max-width : 900px) {
+
+	.logo-wrapper{
+		text-align: center;
+	}
+
+
+	.search-input-container{
+		width: 50%;
+		top: 130px;	
+	}
+
+
+	.search-form{
+		height: 650px;		
+	}
+
+}
+
+@media only screen and (max-width : 600px) {
+
+	.item-result{
+		width: 100%;
+	}
+	.dish-snapshot h3, th{
+		font-size: 20px;
+		padding: 0px;
+		margin-top: 60px;
+	}
+
+	.close-results{
+		top: 5px;
+	}
+
+	.logo-wrapper{
+		text-align: center;
+	}
+
+	.banner span{
+		display: none;		
+	}
+}
+
+@media only screen and (max-width : 400px) {
+
+	.logo{
+		width: 40px;
+		margin-top: 15px;
+	}
+
+	.banner span{
+		display: none;		
+	}
+
+	.search-form{
+		height: 600px;		
+	}
+
+	.search-input-container{
+		width: 100%;
+		
+	}
+
+
+}
