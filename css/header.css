@@ -1,0 +1,113 @@
+
+
+header{
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 2px solid #ff8000;
+}
+
+header img{
+	border: none;
+}
+
+.logo-wrapper{
+  position: relative;
+  left: 10px;
+  margin-right: auto;
+}
+
+.logo{
+	width: 60px;
+	padding-left: 30px;		
+	margin-top: 5px;
+	vertical-align: top;
+	
+}
+
+.banner{
+  position: relative;
+  display: inline-block;
+  margin-left: 30px;
+  font-size: 3em;
+  font-family: 'Baloo', cursive;
+  line-height: 70px;
+  color: #ff8000;
+  text-shadow: 1px 1px 1px #111;
+}
+
+.banner span{
+  text-shadow:none;
+  font-family: monospace;
+  font-size: 60%;
+  margin-left: 20px;
+  
+}
+
+.search-input-container{	
+	position: relative;	
+	width: 80%;
+	left: 10%;
+	height: 80px;
+	top: 40%;	
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 25px;
+}
+
+.search-form{
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: url(../images/logo.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0px -150px;
+  border-bottom: 2px solid #ff8000;
+}
+
+label{
+	background-color: #444;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+input, select{
+  height: 45px;
+  width: 200px;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+}
+
+
+
+
+.label-search-name::after{
+	content: ' *';
+}
+
+#search-button{
+	display: block;
+	border: none;
+	background-color: limegreen;
+	color: #fff;
+	font-family: 'Baloo';
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #ff8000;
+}
+
+

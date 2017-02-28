@@ -1,0 +1,172 @@
+.view.results{
+	margin-bottom: -80px;
+}
+
+.search-form-wrapper{	
+	text-align: center;
+	position: relative;
+
+}
+
+.search-form-wrapper label{
+	display: block;	
+	text-align: center;
+}
+
+
+
+div[class*= "dish-search"] {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+.results-container{
+	text-align: center;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: red;
+	
+}
+
+.results-wrapper{
+	position: absolute;
+	margin-bottom: -50px;
+}
+
+
+.results-wrapper article{
+	
+	display: inline-block;
+	padding: 50px;	
+	margin-top: 30px;
+}
+
+.results-wrapper article img{
+	border-radius: 50%;
+	width: 200px;
+
+}
+
+select{
+	height: 50px;
+	border: none;
+}
+
+#result-name{
+	display: block;
+	font-family: 'Fjalla One';
+	font-size: 20px;
+	background-color: #ff8000;
+	color: #fff;
+	height: 50px;
+	line-height: 50px;
+	margin-bottom: 20px;
+
+}
+
+.item-result{	
+	display: none;
+	position: absolute;
+	width: 100%;	
+	background-color: #ff8000;
+	opacity: 0.95;
+	color: #fff;
+	font-size: 20px;	
+}
+
+.item-result table, .ingredients{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.item-result img{
+	display: inline;
+}
+
+.dish-snapshot h3, th{
+	text-shadow: 1px 1px 1px #222;
+	padding: 10px;
+	font-size: 30px;
+}
+
+.dish-snapshot, .min-vit-snapshot, .ing-snapshot{
+	width: 100%;
+	text-align: center;
+	font-family: 'Roboto', arial, serif;
+	overflow: scroll;
+}
+.min-vit-snapshot{
+	width: 100%;
+	text-align: center;
+}
+
+.item-img-label, .nutrition-snapshot, .min-vit-snapshot, .ing-snapshot{
+	display: inline-block;	
+	padding: 20px;
+	font-size: 25px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.nutrition-snapshot{
+	margin-top: 50px;
+	margin-top: auto;
+}
+
+td{
+	border: 1px solid #fff;
+	padding: 10px;
+}
+
+.ingredients{
+	text-align: left;
+}
+
+a{
+	display: block;
+	margin-top: 35px;
+	font-weight: 800;
+	color: #000;
+}
+
+img{
+	border: 8px solid #fff;
+}
+
+
+
+.tb-snapshot.children{
+	display: none;
+}
+
+.close-results{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	text-align: center;
+	top: 10px;
+	right: 10px;
+	border: 3px solid #fff;
+	padding: 5px;
+	color: #red;
+	font-size: 30px;
+	font-family: arial, serif;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.no-results{
+	display: none;
+	text-align: center;
+	margin-top: 100px;
+	font-size: 30px;
+	font-family: arial, serif;
+}
+

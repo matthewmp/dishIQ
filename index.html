@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dish I.Q. | Know Your Dish</title>	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+</head>
+<body>
+
+<!-- 	Search View 	-->
+
+	<section class="view search">
+		<header>
+			<div class="logo-wrapper">				
+	        	<h1 class="banner">Dish I.Q.<img class = "logo" src="images/7.png" /><span> Know your dish.</span></h1>              	        	
+	     	</div>
+     	</header>
+
+		<div class="search-form-wrapper">
+			<form class="search-form">
+				<div class="search-input-container">
+					<div class="dish-search-name-container">
+						<label class="label-search-name" for="dish-search-name">Dish Name</label>
+						<input class="dish-name" type="text" name="dish-search-name" placeholder="ie. Lasagna" required>	
+					</div>	
+
+					<div class="dish-search-calories-container">
+						<label class="label-search-calories" for="dish-search-calories">Max Calories</label>
+						<input class="max-calories" type="number" name="dish-search-calories" placeholder="ie. 800">	
+					</div>	
+
+					<div class="dish-search-diet-container">
+						<label class="label-search-diet" for="dish-search-diet">Health</label>
+						<select class="diet-requirements" name="dish-search-diet">
+							<option value=""></option>
+							<option value="balanced">Balanced</option>
+							<option value="high-protein">High Protein</option>
+							<option value="high-fiber">High Fiber</option>
+							<option value="low-fat">Low Fat</option>
+							<option value="low-carb">Low Carb</option>
+							<option value="low-sodium">Low Sodium</option>
+						</select>
+					</div>	
+
+					<div class="dish-search-health-container">
+						<label class="label-search-health" for="dish-search-health">Diet</label>
+						<select class="health-requirements" name="dish-search-health">
+							<option value=""></option>
+							<option value="vegan">Vegan</option>
+							<option value="vegetarian">Vegetarian</option>
+							<option value="paleo">Paleo</option>
+							<option value="dairy-free">Dairy Free</option>
+							<option value="gluten-free">Gluten Free</option>
+							<option value="wheat-free">Wheat Free</option>
+							<option value="low-fat">Low Fat</option>
+							<option value="low-sugar">Low Sugar</option>
+							<option value="egg-free">Egg Free</option>
+							<option value="peanut-free">Peanut Free</option>\						
+							<option value="soy-free">Soy Free</option>
+							<option value="fish-free">Fish Free</option>
+							<option value="shellfish-free">Shellfish Free</option>
+						</select>
+					</div>	
+
+					<input type="submit" placeholder="Submit" id="search-button">
+				</div>
+			</form>			
+		</div>	
+	</section>
+
+<!-- 	Results View 	-->
+
+	<section class="view results">
+		<div class="no-results">No results found, try adjusting your search parameters. </div>
+		<div class="results-container">
+			<div class="results-wrapper"></div>
+		</div>
+
+		<div class="item-result">
+			<div class="close-results">X</div>
+
+			<article class="dish-snapshot">
+			<h3 class="label item-info" ></h3>
+				<div class="item-img-label">					
+					<img class="item-image item-info" />
+				</div>					
+				<table class="nutrition-snapshot item-info"></table>
+				
+			</article>
+
+			<article class="min-vit-snapshot">
+				<table class="nutrition-rest item-info"></table>
+				<table class="nutrition-vitamins item-info"></table>
+			</article>
+	
+			<article class="ing-snapshot">
+				<ol class="ingredients item-info"></ol>
+				<h3><a class="link" href="" target="_blank">Click Here for Cooking Instructions</a></h3>
+			</article>
+
+		</div>
+
+	</section>
+
+
+<!-- 	Individual Dish Info View 	-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
