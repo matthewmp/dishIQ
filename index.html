@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/breakpoint.css">
+	<link rel="stylesheet" type="text/css" href="css/grid.css">
+
 </head>
 <body>
 
@@ -25,17 +27,27 @@
 		<div class="search-form-wrapper">
 			<form class="search-form">
 				<div class="search-input-container">
+				<div class="row">
+				
 					<div class="dish-search-name-container">
+					<div class="col-3">
 						<label class="label-search-name" for="dish-search-name">Dish Name</label>
-						<input class="dish-name" type="text" name="dish-search-name" placeholder="ie. Lasagna" required>	
+						<input class="dish-name" type="text" name="dish-search-name" placeholder="ie. Lasagna" required>
 					</div>	
+					</div>	
+				
 
+					
 					<div class="dish-search-calories-container">
+					<div class="col-3">
 						<label class="label-search-calories" for="dish-search-calories">Max Calories</label>
 						<input class="max-calories" type="number" name="dish-search-calories" placeholder="ie. 800">	
 					</div>	
+					</div>
 
+					
 					<div class="dish-search-diet-container">
+					<div class="col-3">
 						<label class="label-search-diet" for="dish-search-diet">Health</label>
 						<select class="diet-requirements" name="dish-search-diet">
 							<option value=""></option>
@@ -47,8 +59,11 @@
 							<option value="low-sodium">Low Sodium</option>
 						</select>
 					</div>	
+					</div>
 
+					
 					<div class="dish-search-health-container">
+					<div class="col-3">
 						<label class="label-search-health" for="dish-search-health">Diet</label>
 						<select class="health-requirements" name="dish-search-health">
 							<option value=""></option>
@@ -67,8 +82,14 @@
 							<option value="shellfish-free">Shellfish Free</option>
 						</select>
 					</div>	
+					</div>
+					</div>
 
+					<div class="row">
+					<div class="col-12">
 					<input type="submit" placeholder="Submit" id="search-button">
+					</div>
+					</div>
 				</div>
 			</form>			
 		</div>	

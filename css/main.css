@@ -122,6 +122,10 @@ li{
 
 }
 
+.label.item-info{
+	margin-top: 50px;
+}
+
 .nutrition-snapshot{
 	margin-top: 50px;
 	margin-top: auto;
@@ -154,8 +158,8 @@ img{
 }
 
 .close-results{
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	position: absolute;
 	text-align: center;
 	top: 10px;
@@ -163,7 +167,8 @@ img{
 	border: 3px solid #fff;
 	padding: 5px;
 	color: #red;
-	font-size: 30px;
+	background-color: #000;
+	line-height: 25px;
 	font-family: arial, serif;
 	cursor: pointer;
 	border-radius: 50%;

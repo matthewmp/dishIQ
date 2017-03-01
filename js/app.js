@@ -217,7 +217,7 @@ $(function(){
 
 
 		setTimeout(function(){
-			$(window).scrollTop(elemPos.top + 100);
+			$(window).scrollTop(elemPos.top + 350);
 		}, 50); 
 		
 
