@@ -109,6 +109,16 @@ function renderResults(state){
 	})
 }
 
+function renderPrevResults(state, ind){
+	renderClearResults();
+	state.previousSearch[ind].recipes.forEach(function(val, index){
+		var imgSrc = val.recipe.image;		
+		var resultName = val.recipe.label;
+		renderResultArticle(imgSrc, resultName, index);
+		
+	})
+}
+
 function renderResultArticle(imgSrc, resultName, index) {	 
 	 $('.results-wrapper').append(`<article id="item-${index}" class="result-item"> <span id="result-name">${resultName}</span><a href="#"><img src=${imgSrc} /></a> </article>`);
 	 renderView('results');
@@ -263,7 +273,10 @@ $(function(){
 
 	// Search Previous Item
 	$('.prev-list').on('click', 'td', function(e){
-		//console.log(e.target.closest('td').attr('id'))
+		
+		var target = e.target.closest('td');
+		var index = target.getAttribute('id').slice(5);		
+		renderPrevResults(state, index);
 	})
 
 
