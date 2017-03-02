@@ -36,10 +36,13 @@ header img{
   font-family: 'Baloo', cursive;
   line-height: 70px;
   color: #ff8000;
-  text-shadow: 1px 1px 1px #111;
+  text-shadow: 1px 1px 1px #111;  
 }
 
-.banner span{
+.banner-dish{
+	cursor: pointer;
+}
+.know{
   text-shadow:none;
   font-family: monospace;
   font-size: 60%;

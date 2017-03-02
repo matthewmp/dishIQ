@@ -112,9 +112,11 @@ function renderResults(state){
 function renderPrevResults(state, ind){
 	renderClearResults();
 	state.previousSearch[ind].recipes.forEach(function(val, index){
-		var imgSrc = val.recipe.image;		
-		var resultName = val.recipe.label;
-		renderResultArticle(imgSrc, resultName, index);
+	var imgSrc = val.recipe.image;		
+	var resultName = val.recipe.label;
+	renderResultArticle(imgSrc, resultName, index);
+	$('.search-form').fadeOut();
+	$('.results-wrapper').fadeIn();
 		
 	})
 }
@@ -277,6 +279,12 @@ $(function(){
 		var target = e.target.closest('td');
 		var index = target.getAttribute('id').slice(5);		
 		renderPrevResults(state, index);
+	})
+
+	// Return Screen to Original View
+	$('.banner').click(function(){
+		$('.results-wrapper').hide();
+		$('.search-form').show();
 	})
 
 
