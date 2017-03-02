@@ -17,7 +17,7 @@ function Search(term, recipes, imgUrl) {
 	this.imgUrl = imgUrl,
 	this.moveToPrevious = function(){
 		var str = JSON.stringify(state.currentSearch);
-		state.previousSearch.push(JSON.parse(str));
+		state.previousSearch.push(JSON.parse(str));		
 	}
 }
 /*
@@ -82,15 +82,14 @@ function callBack(data){
 		$('.no-results').hide();
 		recipes = data.hits;				
 		state.currentSearch = new Search(term, recipes, recipes[0].recipe.image);	
-		renderResults(state);					
+		renderResults(state);	
+		state.currentSearch.moveToPrevious();				
 	} else {
-		$('.no-results').show();		
+		$('.no-results').fadeIn(2000);		
 	}
 }
 
-function loadNutrition(state){
 
-}
 
 /*		Render Functions		*/
 
@@ -118,6 +117,13 @@ function renderResultArticle(imgSrc, resultName, index) {
 
 function renderClearResults(){
 	$('.results-wrapper').empty();	
+}
+
+function renderPrevSearch(){	
+	state.previousSearch.forEach(function(val, ind){
+		var prev = val.searchTerm.q;		
+		$(`<td id="prev-${ind}">${prev}</td>`).appendTo('.prev-list');
+	})
 }
 
 function renderShowItemInfo(index){	
@@ -204,20 +210,21 @@ $(function(){
 		updateParameters();
 		renderClearResults();
 		$('.dish-name').val('');
+		$('.search-form').fadeOut(500);
+		$('.results-wrapper').show();
 	})
 
 	// Render Result for Individual Dish
 	$('.results-wrapper').on('click', 'article', function(e){
 		var elem = $(e.target).closest('article');
 		var elemPos = elem.position();
-		$('.dish-snapshot').css('margin-top', elemPos.top);
-		console.log(elemPos.top)
+		$('.dish-snapshot').css('margin-top', elemPos.top);		
 		var elemIndex = elem.attr('id').slice(5);	
 		renderShowItemInfo(elemIndex);		
 
 
 		setTimeout(function(){
-			$(window).scrollTop(elemPos.top + 350);
+			$(window).scrollTop(elemPos.top + 50);
 		}, 50); 
 		
 
@@ -230,6 +237,35 @@ $(function(){
 		$('.item-result').hide();
 		$('.item-background-overlay').hide();
 	})
+
+
+	// Toggle Previous Search Icon in Header
+	$('.prevI').click(function(){
+	  if($('#prevI').attr('class') === "fa fa-chevron-down"){
+	   $('#prevI').removeClass("fa fa-chevron-down");
+	   $('#prevI').addClass("fa fa-chevron-up")
+	   renderPrevSearch();
+	  }
+	  else {
+	    $('#prevI').removeClass("fa fa-chevron-up");
+	    $('#prevI').addClass("fa fa-chevron-down"); 
+	    $('prev-list').hide();
+	    $('.prev-list').empty()
+	  }   
+	})
+
+	// Toggle search view with magnify glass
+	$('.mag').click(function(){
+		$('.search-form').fadeIn();
+		$('.results-wrapper').fadeOut();
+		$('.no-results').hide();
+	})
+
+	// Search Previous Item
+	$('.prev-list').on('click', 'td', function(e){
+		//console.log(e.target.closest('td').attr('id'))
+	})
+
 
 })
 
