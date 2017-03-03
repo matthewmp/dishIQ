@@ -24,3 +24,19 @@ Dish I.Q. is fully responsive and will adjust depending on the user's device.  B
 <img src="https://github.com/mmpal78/dishIQ/blob/gh-pages/User_Flows_Wireframes/view2.png?raw=true" width=200 alt="View 2" />
 <img src="https://github.com/mmpal78/dishIQ/blob/gh-pages/User_Flows_Wireframes/view3.png?raw=true" width=200 alt="View 3" />
 <img src="https://github.com/mmpal78/dishIQ/blob/gh-pages/User_Flows_Wireframes/view4.png?raw=true" width=200 alt="View 4" />
+
+# Live Site #
+https://mmpal78.github.io/dishIQ/
+
+# Technology #
+
+<ul>
+    <li>HTML5</li>
+    <li>CSS</li>
+    <li>Javascipt</li>
+    <li>JQuery</li>
+    <li>AJAX</li>
+    <li>960 Responsive Grid System</li>
+    <li>Pure DOM Scripting</li>
+    
+</ul>
