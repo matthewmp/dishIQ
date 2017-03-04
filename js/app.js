@@ -8,9 +8,8 @@ var state = {
 
 var term = {};
 
+
 /*		Search Functions		*/
-
-
 function Search(term, recipes, imgUrl) {
 	this.searchTerm = term,
 	this.recipes = recipes,
@@ -20,21 +19,17 @@ function Search(term, recipes, imgUrl) {
 		state.previousSearch.push(JSON.parse(str));		
 	}
 }
-/*
-Search.prototype.moveToPrevious = function(){
-	state.previousSearch.push(JSON.stringify(this));
-}
-*/
+
 
 function updateParameters(){	
-	term = {};
+	term = {};  // Clear previous values
 	var dish = $('.dish-name').val();
 	term.q = dish;
 
 
 	if($('.max-calories').val()){
 		var calories = parseInt($('.max-calories').val());
-		term.calories = `lte ${calories}`
+		term.calories = `lte ${calories}`  // Less than or equal to in terms of calories
 	}
 
 
@@ -76,8 +71,7 @@ function sendRequest(){
 }
 
 
-function callBack(data){
-	
+function callBack(data){	
 	if(data.hits.length !== 0){
 		$('.no-results').hide();
 		recipes = data.hits;				
@@ -93,10 +87,8 @@ function callBack(data){
 
 /*		Render Functions		*/
 
-
 // Show View by Class Name
-function renderView(view){
-	
+function renderView(view){	
 	$('.view.' + view).show();
 }
 
@@ -105,26 +97,12 @@ function renderResults(state){
 		var imgSrc = val.recipe.image;		
 		var resultName = val.recipe.label;
 		renderResultArticle(imgSrc, resultName, index);
-		
-	})
-}
-
-function renderPrevResults(state, ind){
-	renderClearResults();
-	state.previousSearch[ind].recipes.forEach(function(val, index){
-	var imgSrc = val.recipe.image;		
-	var resultName = val.recipe.label;
-	renderResultArticle(imgSrc, resultName, index);
-	$('.search-form').fadeOut();
-	$('.results-wrapper').fadeIn();
-		
 	})
 }
 
 function renderResultArticle(imgSrc, resultName, index) {	 
 	 $('.results-wrapper').append(`<article id="item-${index}" class="result-item"> <span id="result-name">${resultName}</span><a href="#"><img src=${imgSrc} /></a> </article>`);
 	 renderView('results');
-
 }
 
 function renderClearResults(){
@@ -138,19 +116,29 @@ function renderPrevSearch(){
 	})
 }
 
-function renderShowItemInfo(index){	
+function renderPrevResults(state, ind){
+	renderClearResults();
+	state.previousSearch[ind].recipes.forEach(function(val, index){
+	var imgSrc = val.recipe.image;		
+	var resultName = val.recipe.label;
+	renderResultArticle(imgSrc, resultName, index);
+	$('.search-form').fadeOut();
+	$('.results-wrapper').fadeIn();		
+	})
+}
 
-	// size and position item result overlay backdrop
+function renderShowItemInfo(index){	
+	// Size and position item result overlay backdrop
 	var height = $(document).height();
 	$('.item-background-overlay').css('height', height);
 	$('.item-background-overlay').show();
-
 
 	var dish = state.currentSearch.recipes[index].recipe;
 	$('.item-info').empty();
 	$('.item-result').show();
 	$('.label').text(dish.label);
 
+	// Format nutrition info from search results
 	var nutSnapShot = {
 		calories : { val: Math.ceil(dish.calories / dish.yield), unit: '' },
 		fat : { val: Math.ceil(dish.digest[0].total), unit: dish.digest[0].unit },
@@ -183,24 +171,24 @@ function renderShowItemInfo(index){
 		K: { val: Math.ceil(dish.digest[21].total), unit: dish.digest[21].unit },
 	}
 		
-
+	// Place formatted nutrition info into tables
 	for(var key in nutSnapShot){
-		$(`<tr> <td> ${key} </td> <td>${nutSnapShot[key].val}</td> <td>${nutSnapShot[key].unit}</td></tr>`).appendTo('.nutrition-snapshot')
+		$(`<tr> <td> ${key} </td> <td>${nutSnapShot[key].val}</td> <td>${nutSnapShot[key].unit}</td></tr>`).appendTo('.nutrition-snapshot');
 	}
 	$('.nutrition-snapshot').prepend('<tr><th>Snapshot</th></tr>')
 	
 	for(var key in nutRest){
-		$(`<tr> <td> ${key} </td> <td>${nutRest[key].val}</td> <td>${nutRest[key].unit}</td></tr>`).appendTo('.nutrition-rest')
+		$(`<tr> <td> ${key} </td> <td>${nutRest[key].val}</td> <td>${nutRest[key].unit}</td></tr>`).appendTo('.nutrition-rest');
 	}
-	$('.nutrition-rest').prepend('<tr><th>Minerals</th></tr>')
+	$('.nutrition-rest').prepend('<tr><th>Minerals</th></tr>');
 
 	for(var key in nutVitamins){
-		$(`<tr> <td> ${key} </td> <td>${nutVitamins[key].val}</td> <td>${nutVitamins[key].unit}</td></tr>`).appendTo('.nutrition-vitamins')
+		$(`<tr> <td> ${key} </td> <td>${nutVitamins[key].val}</td> <td>${nutVitamins[key].unit}</td></tr>`).appendTo('.nutrition-vitamins');
 	}
 	$('.nutrition-vitamins').prepend('<tr><th>Vitamins</th></tr>')
 
 	dish.ingredientLines.forEach(function(val, ind){
-		$('ol').append(`<li>${val}</li`)//.appendTo('.ingredients ul');
+		$('ol').append(`<li>${val}</li`);
 		
 	})
 
@@ -208,10 +196,6 @@ function renderShowItemInfo(index){
 
 	$('.link').attr('href', dish.url);
 }
-
-
-
-
 
 
 /*		Event Listeners		*/
@@ -233,18 +217,13 @@ $(function(){
 		$('.dish-snapshot').css('margin-top', elemPos.top);		
 		var elemIndex = elem.attr('id').slice(5);	
 		renderShowItemInfo(elemIndex);		
-
-
 		setTimeout(function(){
 			$(window).scrollTop(elemPos.top + 50);
-		}, 50); 
-		
-
-		
+		}, 50); 		
 	})
 
 
-	//close individual item result window
+	// Close individual item result window
 	$('.close-results').click(function(){		
 		$('.item-result').hide();
 		$('.item-background-overlay').hide();
@@ -274,8 +253,7 @@ $(function(){
 	})
 
 	// Search Previous Item
-	$('.prev-list').on('click', 'td', function(e){
-		
+	$('.prev-list').on('click', 'td', function(e){		
 		var target = e.target.closest('td');
 		var index = target.getAttribute('id').slice(5);		
 		renderPrevResults(state, index);
