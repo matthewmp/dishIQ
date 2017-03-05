@@ -1,13 +1,10 @@
 
-var state = {
-	
+var state = {	
 	currentSearch: '',
-	previousSearch: []
-	
+	previousSearch: []	
 }
 
 var term = {};
-
 
 /*		Search Functions		*/
 function Search(term, recipes, imgUrl) {
@@ -20,32 +17,26 @@ function Search(term, recipes, imgUrl) {
 	}
 }
 
-
 function updateParameters(){	
 	term = {};  // Clear previous values
 	var dish = $('.dish-name').val();
 	term.q = dish;
-
 
 	if($('.max-calories').val()){
 		var calories = parseInt($('.max-calories').val());
 		term.calories = `lte ${calories}`  // Less than or equal to in terms of calories
 	}
 
-
 	var diet = $('.diet-requirements').val();
 	if(diet){
 		term.dietLabels = diet;
 	}
 
-
-
 	var health = $('.health-requirements').val();
 	if(health){
 		term.healthLabels = health;
 	}	
-	sendRequest();
-	
+	sendRequest();	
 }
 
 function sendRequest(){	
@@ -57,7 +48,6 @@ function sendRequest(){
 	        to: 100              	        
 		}
 
-
 	var request = Object.assign(parameters, term)	
 
  	$.ajax({
@@ -65,11 +55,8 @@ function sendRequest(){
     	data: request,
     	dataType: 'JSONP',
     	jsonpCallback: 'callBack'    	
-    })
-
-    
+    })    
 }
-
 
 function callBack(data){	
 	if(data.hits.length !== 0){
@@ -101,7 +88,7 @@ function renderResults(state){
 }
 
 function renderResultArticle(imgSrc, resultName, index) {	 
-	 $('.results-wrapper').append(`<article id="item-${index}" class="result-item"> <span id="result-name">${resultName}</span><a href="#"><img src=${imgSrc} /></a> </article>`);
+	 $('.results-wrapper').append(`<article id='item-${index}' class='result-item'> <span id='result-name'>${resultName}</span><a href='#'><img src=${imgSrc} /></a> </article>`);
 	 renderView('results');
 }
 
@@ -112,7 +99,7 @@ function renderClearResults(){
 function renderPrevSearch(){	
 	state.previousSearch.forEach(function(val, ind){
 		var prev = val.searchTerm.q;		
-		$(`<td id="prev-${ind}">${prev}</td>`).appendTo('.prev-list');
+		$(`<td id='prev-${ind}'>${prev}</td>`).appendTo('.prev-list');
 	})
 }
 
@@ -232,14 +219,14 @@ $(function(){
 
 	// Toggle Previous Search Icon in Header
 	$('.prevI').click(function(){
-	  if($('#prevI').attr('class') === "fa fa-chevron-down"){
-	   $('#prevI').removeClass("fa fa-chevron-down");
-	   $('#prevI').addClass("fa fa-chevron-up")
+	  if($('#prevI').attr('class') === 'fa fa-chevron-down'){
+	   $('#prevI').removeClass('fa fa-chevron-down');
+	   $('#prevI').addClass('fa fa-chevron-up')
 	   renderPrevSearch();
 	  }
 	  else {
-	    $('#prevI').removeClass("fa fa-chevron-up");
-	    $('#prevI').addClass("fa fa-chevron-down"); 
+	    $('#prevI').removeClass('fa fa-chevron-up');
+	    $('#prevI').addClass('fa fa-chevron-down'); 
 	    $('prev-list').hide();
 	    $('.prev-list').empty()
 	  }   
@@ -268,17 +255,3 @@ $(function(){
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
