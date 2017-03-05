@@ -17,6 +17,10 @@
 	.search-input-container{		
 		top: 100px;	
 	}
+	.table-wrapper{
+		padding-right: 50px;
+	}
+
 }
 
 @media only screen and (max-width : 900px) {

@@ -218,7 +218,7 @@ $(function(){
 		var elemIndex = elem.attr('id').slice(5);	
 		renderShowItemInfo(elemIndex);		
 		setTimeout(function(){
-			$(window).scrollTop(elemPos.top + 50);
+			$(window).scrollTop(elemPos.top - 100);
 		}, 50); 		
 	})
 
@@ -262,6 +262,7 @@ $(function(){
 	// Return Screen to Original View
 	$('.banner').click(function(){
 		$('.results-wrapper').hide();
+		$('.view.results').hide();
 		$('.search-form').show();
 	})
 
