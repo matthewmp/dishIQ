@@ -40,14 +40,12 @@ function updateParameters(){
 }
 
 function sendRequest(){	
-
 	var parameters =  {
 			app_id: 'c0974266',
 	        app_key: 'b92e082d024a831f4498e4eaab7d7b7b',
 	        q: '',
 	        to: 100              	        
 		}
-
 	var request = Object.assign(parameters, term)	
 
  	$.ajax({
@@ -110,6 +108,7 @@ function renderPrevResults(state, ind){
 	var resultName = val.recipe.label;
 	renderResultArticle(imgSrc, resultName, index);
 	$('.search-form').fadeOut();
+	$('.item-background-overlay').hide()
 	$('.results-wrapper').fadeIn();		
 	})
 }
@@ -218,7 +217,7 @@ $(function(){
 
 
 	// Toggle Previous Search Icon in Header
-	$('.prevI').click(function(){
+	$('.prevI').hover(function(){
 	  if($('#prevI').attr('class') === 'fa fa-chevron-down'){
 	   $('#prevI').removeClass('fa fa-chevron-down');
 	   $('#prevI').addClass('fa fa-chevron-up')
@@ -232,10 +231,28 @@ $(function(){
 	  }   
 	})
 
+	$('.prevI').click(function(){
+	  if($('#prevI').attr('class') === 'fa fa-chevron-down'){
+	   $('#prevI').removeClass('fa fa-chevron-down');
+	   $('#prevI').addClass('fa fa-chevron-up')
+	   renderPrevSearch();
+
+	  }
+	  else if($('#prevI').attr('class') === 'fa fa-chevron-up'){
+	    $('#prevI').removeClass('fa fa-chevron-up');
+	    $('#prevI').addClass('fa fa-chevron-down'); 
+	    $('prev-list').hide();
+	    $('.prev-list').empty()
+	  }   
+	})
+
 	// Toggle search view with magnify glass
 	$('.mag').click(function(){
 		$('.search-form').fadeIn();
 		$('.results-wrapper').fadeOut();
+		$('.no-results').hide();
+		$('.item-result').hide();
+		$('.item-background-overlay').hide();
 		$('.no-results').hide();
 	})
 
@@ -244,6 +261,8 @@ $(function(){
 		var target = e.target.closest('td');
 		var index = target.getAttribute('id').slice(5);		
 		renderPrevResults(state, index);
+		state.currentSearch = state.previousSearch[index];
+		$('.no-results').hide();
 	})
 
 	// Return Screen to Original View

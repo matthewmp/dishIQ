@@ -94,14 +94,15 @@
 	}
 
 	.search-input-container{
-		top: 10px;
+		top: 80px;
 		margin-left: 70px;
 		
 	}
+}
 
 	@media only screen and (max-width : 340px) {
 	.search-input-container{
-		top: 10px;
+		
 		margin-left: 40px;
 		
 	}
