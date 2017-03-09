@@ -29,13 +29,19 @@ function updateParameters(){
 
 	var diet = $('.diet-requirements').val();
 	if(diet){
-		term.dietLabels = diet;
+		if(diet === 'vegan' || diet === 'vegetarian' || diet === 'sugar-conscious'){
+			term.health = diet;
+		} else {
+			term.diet = diet;
+		}
+		console.log(`Term: ${JSON.stringify(term)}`)
 	}
-
+/*
 	var health = $('.health-requirements').val();
 	if(health){
 		term.healthLabels = health;
 	}	
+	*/
 	sendRequest();	
 }
 

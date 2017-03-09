@@ -39,7 +39,8 @@
 		<div class="search-form-wrapper">
 			<form class="search-form">
 				<div class="search-input-container">
-					<div class="row">				
+					<div class="row">	
+						<p class="search-p">Find Your Dish</p>			
 						<div class="dish-search-name-container">
 							<div class="col-3">
 								<label class="label-search-name" for="dish-search-name">Dish Name</label>
@@ -59,38 +60,17 @@
 						
 						<div class="dish-search-diet-container">
 							<div class="col-3">
-								<label class="label-search-diet" for="dish-search-diet">Health</label>
+								<label class="label-search-diet" for="dish-search-diet">Restrictions</label>
 								<select class="diet-requirements" name="dish-search-diet">
 									<option value=""></option>
-									<option value="balanced">Balanced</option>
-									<option value="high-protein">High Protein</option>
-									<option value="high-fiber">High Fiber</option>
+									<option value="vegetarian">Vegetarian</option>
+									<option value="vegan">Vegan</option>
+									<option value="sugar-conscious">Low Sugar</option>
+
 									<option value="low-fat">Low Fat</option>
 									<option value="low-carb">Low Carb</option>
-									<option value="low-sodium">Low Sodium</option>
-								</select>
-							</div>	
-						</div>
+									<option value="high-protein">High Protein</option>
 
-						
-						<div class="dish-search-health-container">
-							<div class="col-3">
-								<label class="label-search-health" for="dish-search-health">Diet</label>
-								<select class="health-requirements" name="dish-search-health">
-									<option value=""></option>
-									<option value="vegan">Vegan</option>
-									<option value="vegetarian">Vegetarian</option>
-									<option value="paleo">Paleo</option>
-									<option value="dairy-free">Dairy Free</option>
-									<option value="gluten-free">Gluten Free</option>
-									<option value="wheat-free">Wheat Free</option>
-									<option value="low-fat">Low Fat</option>
-									<option value="low-sugar">Low Sugar</option>
-									<option value="egg-free">Egg Free</option>
-									<option value="peanut-free">Peanut Free</option>\						
-									<option value="soy-free">Soy Free</option>
-									<option value="fish-free">Fish Free</option>
-									<option value="shellfish-free">Shellfish Free</option>
 								</select>
 							</div>	
 						</div>
@@ -105,6 +85,17 @@
 			</form>			
 		</div>	
 	</section>
+<!--
+	<section class="pop-dishes">
+		<img class="popular">
+		<img class="popular">
+		<img class="popular">
+	</section>	
+	
+-->
+
+
+		
 
 <!-- 	Results View 	-->
 
@@ -144,6 +135,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://use.fontawesome.com/a06b45edee.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+
 </body>
 </html>
 
