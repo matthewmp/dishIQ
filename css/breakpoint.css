@@ -11,6 +11,10 @@
 	.search-input-container input, select{
 		margin-bottom: 10px;
 	}
+
+	.search-p-wrapper{
+		top: 70px;
+	}
 }
 
 @media only screen and (max-width : 990px) {
@@ -20,6 +24,13 @@
 	.table-wrapper{
 		padding-right: 50px;
 	}
+
+	.search-p-wrapper{
+		top: 50px;
+		font-size: 50px;
+	}
+
+	
 
 }
 
@@ -81,8 +92,7 @@
 		display: none;
 	}
 	
-	.search-p{
-		font-size: 90%;
+	.search-p-wrapper{
 	}
 }
 
@@ -98,14 +108,13 @@
 	}
 
 	.search-input-container{
-		top: 80px;
+		top: 95px;
 		margin-left: 70px;
 		
 	}
 
-	.search-p{
-		font-size: 20px;
-		margin-left: 60px;
+	.search-p-wrapper{
+		font-size: 30px;
 	}
 
 
