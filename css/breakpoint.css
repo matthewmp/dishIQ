@@ -24,11 +24,12 @@
 	.table-wrapper{
 		padding-right: 50px;
 	}
-
 	.search-p-wrapper{
 		top: 50px;
 		font-size: 50px;
 	}
+
+
 
 	
 
@@ -49,6 +50,9 @@
 
 	.table-wrapper{
 		padding-right: 100px;
+	}
+	.divider{
+		display: none;
 	}
 }
 
@@ -77,6 +81,9 @@
 	.table-wrapper{
 		padding-right: 50px;
 	}
+	.featured{
+		margin-top: 0px;
+	}
 
 
 
@@ -93,6 +100,7 @@
 	}
 	
 	.search-p-wrapper{
+		font-size: 40px;
 	}
 }
 

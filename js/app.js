@@ -29,19 +29,12 @@ function updateParameters(){
 
 	var diet = $('.diet-requirements').val();
 	if(diet){
-		if(diet === 'vegan' || diet === 'vegetarian' || diet === 'sugar-conscious'){
+		if(diet === 'vegan' || diet === 'vegetarian'){
 			term.health = diet;
 		} else {
 			term.diet = diet;
-		}
-		console.log(`Term: ${JSON.stringify(term)}`)
+		}		
 	}
-/*
-	var health = $('.health-requirements').val();
-	if(health){
-		term.healthLabels = health;
-	}	
-	*/
 	sendRequest();	
 }
 
@@ -87,13 +80,18 @@ function renderResults(state){
 	state.currentSearch.recipes.forEach(function(val, index){
 		var imgSrc = val.recipe.image;		
 		var resultName = val.recipe.label;
-		renderResultArticle(imgSrc, resultName, index);
+		var cal = Math.ceil(val.recipe.calories / val.recipe.yield);	
+		renderResultArticle(imgSrc, resultName, index, cal);
 	})
 }
 
-function renderResultArticle(imgSrc, resultName, index) {	 
-	 $('.results-wrapper').append(`<article id='item-${index}' class='result-item'> <span id='result-name'>${resultName}</span><a href='#'><img src=${imgSrc} /></a> </article>`);
+function renderResultArticle(imgSrc, resultName, index, cal) {	 	 
+	 $('.results-wrapper').append(`<article id='item-${index}' class='result-item'> 
+	 			<span id='result-name'>${resultName}</span><a href='#'><img src=${imgSrc} /></a>
+	 			<p class="results-cal">Calories: ${cal}</p> 
+	 		</article>`);
 	 renderView('results');
+
 }
 
 function renderClearResults(){
@@ -112,9 +110,10 @@ function renderPrevResults(state, ind){
 	state.previousSearch[ind].recipes.forEach(function(val, index){
 	var imgSrc = val.recipe.image;		
 	var resultName = val.recipe.label;
-	renderResultArticle(imgSrc, resultName, index);
-	$('.search-form').fadeOut();
-	$('.item-background-overlay').hide()
+	var cal = Math.ceil(val.recipe.calories / val.recipe.yield);
+	renderResultArticle(imgSrc, resultName, index, cal);
+	$('.view-search').fadeOut();
+	$('.item-background-overlay').hide()	
 	$('.results-wrapper').fadeIn();		
 	})
 }
@@ -198,7 +197,7 @@ $(function(){
 		updateParameters();
 		renderClearResults();
 		$('.dish-name').val('');
-		$('.search-form').fadeOut(500);
+		$('.view-search').fadeOut(500);
 		$('.results-wrapper').show();
 	})
 
@@ -254,7 +253,7 @@ $(function(){
 
 	// Toggle search view with magnify glass
 	$('.mag').click(function(){
-		$('.search-form').fadeIn();
+		$('.view-search').fadeIn();
 		$('.results-wrapper').fadeOut();
 		$('.no-results').hide();
 		$('.item-result').hide();
@@ -275,8 +274,27 @@ $(function(){
 	$('.banner').click(function(){
 		$('.results-wrapper').hide();
 		$('.view.results').hide();
-		$('.search-form').show();
+		$('.view-search').show();
 	})
 
+	// Featured Dishes Event Listeners
+	$("#one").click(function(){
+		$(".dish-name").val('vegetarian pizza');
+		$('.max-calories').val('500');
+		$("#search-button").click();
+	});
+
+	$("#two").click(function(){
+		$(".dish-name").val('Salad');
+		$('.max-calories').val('100');
+
+		$("#search-button").click();
+	})
+
+	$("#three").click(function(){
+		$(".dish-name").val('pasta');
+		$('.max-calories').val('400');
+		$("#search-button").click();
+	})
 
 })
