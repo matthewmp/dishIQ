@@ -281,6 +281,7 @@ $(function(){
 	$("#one").click(function(){
 		$(".dish-name").val('vegetarian pizza');
 		$('.max-calories').val('500');
+		$('.diet-requirements').val('vegetarian');
 		$("#search-button").click();
 	});
 
