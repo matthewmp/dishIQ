@@ -110,7 +110,6 @@ header img{
 .search-p-wrapper{
 	position: absolute;
 	top: 150px;
-	z-index: 100;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;

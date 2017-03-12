@@ -288,7 +288,6 @@ $(function(){
 	$("#two").click(function(){
 		$(".dish-name").val('Salad');
 		$('.max-calories').val('100');
-
 		$("#search-button").click();
 	})
 
