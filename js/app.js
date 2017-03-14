@@ -120,7 +120,7 @@ function renderPrevResults(state, ind){
 
 function renderShowItemInfo(index){	
 	// Size and position item result overlay backdrop
-	var height = $(document).height();
+	var height = $(document).height() + 1500;
 	$('.item-background-overlay').css('height', height);
 	$('.item-background-overlay').show();
 
