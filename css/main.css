@@ -93,7 +93,6 @@ header img{
   border-bottom: 2px solid #ff8000;
 }
 
-
 .search-input-container{	
 	position: relative;	
 	margin-left: auto;
@@ -270,7 +269,6 @@ li{
 	font-size: 25px;
 	margin-left: auto;
 	margin-right: auto;
-
 }
 
 .label.item-info{
@@ -356,6 +354,7 @@ a{
 	text-shadow: 1px 1px 1px #000;
 
 }
+
 .featured {
 	display: inline-block;
 	width: 200px;
@@ -426,5 +425,3 @@ footer{
     color: #fff;
     font-family: 'Roboto';
 }
-
-
