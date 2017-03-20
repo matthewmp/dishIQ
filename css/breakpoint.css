@@ -84,6 +84,9 @@
 	.search-p-wrapper{
 		font-size: 40px;
 	}
+	footer{
+		font-size: 10%;
+	}
 }
 
 @media only screen and (max-width : 420px) {
