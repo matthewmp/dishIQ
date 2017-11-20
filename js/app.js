@@ -81,7 +81,7 @@ function callBack(data){
 
 // Show View by Class Name
 function renderView(view){	
-	$('.view-search').fadeIn();
+	$('.view.' + view).show();
 }
 
 function renderResults(state){
