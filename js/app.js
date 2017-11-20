@@ -54,7 +54,7 @@ function sendRequest(){
     	dataType: 'JSONP',
     	jsonpCallback: 'callBack',
     	error: function(){
-    		console.log('Error')
+    		console.log('Error');
     		$('.spinner-overlay').hide();
     		$('.view-search').fadeIn();
     		alert('The API is Limited to 5 Searches Per Minute');
