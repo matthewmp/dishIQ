@@ -39,6 +39,7 @@ function updateParameters(){
 }
 
 function sendRequest(){	
+	$('.spinner-overlay').fadeIn();
 	var parameters =  {
 			app_id: 'c0974266',
 	        app_key: 'b92e082d024a831f4498e4eaab7d7b7b',
@@ -51,7 +52,13 @@ function sendRequest(){
     	url: 'https://api.edamam.com/search',
     	data: request,
     	dataType: 'JSONP',
-    	jsonpCallback: 'callBack'    	
+    	jsonpCallback: 'callBack',
+    	error: function(){
+    		console.log('Error')
+    		$('.spinner-overlay').hide();
+    		$('.view-search').fadeIn();
+    		alert('The API is Limited to 5 Searches Per Minute');
+    	}  	
     })    
 }
 
@@ -63,6 +70,7 @@ function callBack(data){
 		renderResults(state);	
 		state.currentSearch.moveToPrevious();				
 	} else {
+		$('.spinner-overlay').fadeOut(1000);
 		$('.no-results').fadeIn(2000);		
 	}
 }
@@ -73,7 +81,7 @@ function callBack(data){
 
 // Show View by Class Name
 function renderView(view){	
-	$('.view.' + view).show();
+	$('.view-search').fadeIn();
 }
 
 function renderResults(state){
@@ -83,6 +91,7 @@ function renderResults(state){
 		var cal = Math.ceil(val.recipe.calories / val.recipe.yield);	
 		renderResultArticle(imgSrc, resultName, index, cal);
 	})
+	$('.spinner-overlay').fadeOut(700);
 }
 
 function renderResultArticle(imgSrc, resultName, index, cal) {	 	 

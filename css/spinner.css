@@ -1,0 +1,168 @@
+.spinner-wrapper{
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  height: 100px;
+  width: 100px;
+}
+
+.cooking{
+  text-align: center;
+}
+
+.flame-outer{
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+  background: orangered;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  border-top-right-radius: 40%;
+  transform: rotate(45deg);
+  animation: flame 1s linear infinite;
+  transform-origin: bottom;
+}
+
+.flame-outer:nth-child(2){
+  z-index: 10;
+  left: 27px;
+  height: 30px;
+  width: 30px;
+}
+
+.flame-outer:nth-child(3){
+  left: 50px;
+  height: 20px;
+  width: 20px;
+}
+
+.pan{
+  z-index: 10;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  width: 70px;
+  height: 10px;
+  background: #000;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  perspective: 100px;
+  animation: pan 500ms linear infinite;
+}
+
+.handle{
+  position: absolute;
+  height: 5px;
+  width: 40px;
+  background: #ccc;
+  right: 70px;
+  border-bottom-left-radius: 50px;
+}
+
+.food{
+  z-index: 3;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: red;
+  bottom: 40px;
+  right: 50px;
+  animation: meatball 0.7s linear infinite;
+}
+
+.food-2{
+  z-index: 0;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: red;
+  bottom: 40px;
+  right: 50px;
+  animation: meatball2 0.7s linear infinite;
+}
+
+.spinner-overlay{
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.93);
+}
+
+.spinner-wrapper{
+  margin: 0;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes flame{
+  0%{
+    transform: scale(0.8) rotate(45deg)
+  }
+  50%{
+    transform: scale(1) rotate(45deg)
+  }
+  100%{
+    transform: scale(0.8) rotate(45deg)
+  }
+}
+
+@keyframes pan{
+  0%{
+    
+    bottom: 30px;
+    right: 20px;
+  }
+  50%{
+    
+    bottom: 40px;
+    right: 10px;
+  }
+ 
+  100%{
+    bottom: 30px;
+    right: 20px;
+  }
+}
+
+@keyframes meatball{
+  0%, 100%{
+    bottom: 38px;
+    rigth: 50px;
+  }
+  50%{
+    bottom: 50px;
+    right: 60px;
+  }
+  75%{
+    right: 30px;
+  }
+  90%{
+    right: 40px;
+  }
+}
+
+@keyframes meatball2{
+  0%, 100%{
+    bottom: 38px;
+    rigth: 30px;
+  }
+  50%{
+    bottom: 60px;
+    right: 30px;
+  }
+  75%{
+    right: 20px;
+  }
+  90%{
+    right: 40px;
+  }
+}
