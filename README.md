@@ -26,7 +26,7 @@ Dish I.Q. is fully responsive and will adjust itself in accordance with the user
 <img src="https://github.com/mmpal78/dishIQ/blob/gh-pages/User_Flows_Wireframes/view4.png?raw=true" width=200 alt="View 4" />
 
 # Live Site #
-https://mmpal78.github.io/dishIQ/
+https://matthewmp.github.io/dishIQ/
 
 # Technology #
 
